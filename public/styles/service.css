@@ -1,0 +1,25 @@
+h1{text-align: center;}
+.image{position:absolute ;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    background-image:url("../images/services2.jpg");
+        background-size: cover;
+    
+        height: 685px ;
+        background-color: rgba(0, 0, 0, 0.8);
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);}
+    .contenu{
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-weight: bold;
+      }

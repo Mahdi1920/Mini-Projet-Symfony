@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block title %}Client{% endblock %}
+{% block body %}
+    <style>
+        h1{
+            text-align:center;
+            }
+        .image{
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            display: block;
+            background-image:url("../images/clients1.jpg");
+            background-size: cover;
+            height: 750px ;
+            background-color: rgba(0, 0, 0, 0.6);
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+            }
+        .contenu{
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: white;
+            }
+      </style>
+<div class="image"></div>
+<div class="contenu">
+    <h1>Client {{ client.nomCli }} {{ client.prenom }}</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Nom_cli</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Email</th>   
+                <th>Action</th>             
+            </tr>
+            <tr>
+                <td>{{ client.id }}</td> 
+                <td>{{ client.nomCli }}</td>
+                <td>{{ client.prenom }}</td>
+                <td>{{ client.adresse }}</td>
+                <td>{{ client.email }}</td>
+                <td>
+                    <div class="btn-group btn-group-lg">
+                        <a href="{{ path('client_edit', {'id': client.id}) }}"><button class="btn btn-success btn-lg">Edit <i class="fas fa-edit"></i></button></a>
+                        {{ include('client/_delete_form.html.twig') }}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a href="{{ path('client_index') }}"><button class="btn btn-success btn-lg">back to list</button></a>
+    </div>
+    </div>
+{% endblock %}

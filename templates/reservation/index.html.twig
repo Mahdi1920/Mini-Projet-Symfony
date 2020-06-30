@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" type="text/css" href="../styles/reservation.css">
+    
+    <style>
+        h1{text-align: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    </style>
+    {{ include('/menu/menu.html.twig') }}
+    <div class="image"></div>
+    <div class="contenu">
+        <h1>Our Reservations</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date_r</th>
+                        <th>Etat</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for reservation in reservations %}
+                    <tr>
+                        <td>{{ reservation.dateR ? reservation.dateR|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ reservation.etat }}</td>
+                        <td>
+                            <a href="{{ path('reservation_show', {'id': reservation.id}) }}"><button class="btn btn-info btn-lg">Show <i class="fas fa-info"></i></button></a>
+                            <a href="{{ path('reservation_edit', {'id': reservation.id}) }}"><button class="btn btn-success btn-lg">Edit <i class="fas fa-edit"></i></button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="text-center">
+                <a href="{{ path('reservation_new') }}"><button class="btn btn-primary btn-lg" >Add <i class="fa fa-plus-square"></i></button></a>
+            </div>
+    </div>
+{% endblock %}

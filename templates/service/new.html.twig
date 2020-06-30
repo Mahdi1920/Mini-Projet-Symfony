@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Service{% endblock %}
+
+{% block body %}
+<style>
+    h1{text-align: center;}
+    .image{ position:absolute ;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            display: block;
+            background-image:url("../images/services2.jpg");
+            background-size: cover;
+            height: 750px ;
+            background-color: rgba(0, 0, 0, 0.8);
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+            }
+    .contenu{
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-weight: bold;
+        }
+</style>
+    <div class="image"></div>
+    <div class="contenu">
+        <h1>Add Service</h1>
+        <div class="text-center">
+            {{ include('service/_form.html.twig') }}
+            <a href="{{ path('service_index') }}"><button class="btn btn-success btn-lg">back to list</button></a>
+        </div>
+    </div>
+{% endblock %}

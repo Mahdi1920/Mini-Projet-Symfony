@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}New Client{% endblock %}
+{% block body %}
+    <style>
+    .image{position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        display: block;
+        background-image:url("../images/clients1.jpg");
+            background-size: cover;
+            height: 750px ;
+            background-color: rgba(0, 0, 0, 0.6);
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);}
+        .contenu{
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: white;
+        }
+    </style>
+
+    <div class="image"></div>
+    <div class="contenu">
+        <div class="text-center">
+            <h1>Create new Client</h1>
+            {{ include('client/_form.html.twig') }}
+            <a href="{{ path('client_index') }}">
+                <button class="btn btn-success btn-lg">back to list</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

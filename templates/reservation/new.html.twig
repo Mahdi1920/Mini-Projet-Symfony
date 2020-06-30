@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+{% block body %}
+<style>
+    .image{
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            display: block;
+            background-image:url("../images/services3.jpg");
+            background-size: cover;
+            height: 750px ;
+            background-color: rgba(0, 0, 0, 0.6);
+            -webkit-filter: blur(1px);
+            -moz-filter: blur(1px);
+            -o-filter: blur(1px);
+            -ms-filter: blur(1px);
+            filter: blur(1px);
+            }
+    .contenu{
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-weight: bold;
+            text-align:center;   
+            background-color: rgba(0, 0, 0, 0.2);
+            }
+    </style>
+    <div class="image"></div>
+    <div class="contenu">
+        <div class="container text-white">
+            <h1>Create new Reservation</h1>
+            {{ include('reservation/_form.html.twig') }}
+            <a href="{{ path('reservation_index') }}"><button class="btn btn-success btn-lg">back to list</button></a>
+        </div>
+    </div>
+{% endblock %}

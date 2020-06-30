@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Service{% endblock %}
+
+{% block body %}
+<style>
+    h1{text-align: center;}
+    .image{ position:absolute ;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            display: block;
+            background-image:url("../images/services2.jpg");
+            background-size: cover;
+            height: 750px ;
+            background-color: rgba(0, 0, 0, 0.8);
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+            }
+    .contenu{
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-weight: bold;
+        }
+</style>
+    <div class="image"></div>
+    <div class="contenu">
+        <h1>Service {{ service.libelle }}</h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>                
+                    <th>Libelle</th>           
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>{{ service.id }}</td>
+                    <td>{{ service.libelle }}</td>
+                    <td>{{ service.description }}</td>
+                    <td>
+                        <div class="btn-group btn-group-lg">
+                            <a href="{{ path('service_edit', {'id': service.id}) }}"><button class="btn btn-success btn-lg">Edit <i class="fas fa-edit"></i></button></a>
+                            {{ include('service/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="{{ path('service_index') }}"><button class="btn btn-success btn-lg">back to list</button></a>
+        </div>
+    </div> 
+{% endblock %}
